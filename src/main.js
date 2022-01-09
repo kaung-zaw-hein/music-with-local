@@ -11,13 +11,13 @@ let app;
 
 auth.onAuthStateChanged(() => {
   if (!app) {
-    app = createApp(App);
+    app = createApp(App).use(router).use(store).use(VeeValidatePlugin).mount('#app')
 
-    app.use(store);
-    app.use(router);
-    app.use(VeeValidatePlugin);
+    // app.use(store);
+    // app.use(router);
+    // app.use(VeeValidatePlugin);
 
-    app.mount('#app');
+    // app.mount('#app');
   }
 });
 
