@@ -1,6 +1,7 @@
 import firebase from "firebase";
 import "firebase/firestore";
 import "firebase/auth";
+import "firebase/storage";
 const firebaseConfig = {
   apiKey: "AIzaSyBscB93QiM0hhWTaOoA0dtYlzmfFYTlRzY",
   authDomain: "vue-a1b6e.firebaseapp.com",
@@ -13,9 +14,11 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   let db=firebase.firestore();
   let auth =firebase.auth();
+  let storage =firebase.storage();
   let usersCollection = db.collection('users');
+  let songsCollection = db.collection("songs");
   // let timestamp=firebase.firestore.FieldValue.serverTimestamp;
 
-  export {db,auth,usersCollection};
+  export {db,auth,usersCollection,storage,songsCollection};
 
 
