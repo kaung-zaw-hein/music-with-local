@@ -17,8 +17,9 @@ const firebaseConfig = {
   let storage =firebase.storage();
   let usersCollection = db.collection('users');
   let songsCollection = db.collection("songs");
+  let commentsCollection = db.collection('comments');
   // let timestamp=firebase.firestore.FieldValue.serverTimestamp;
 
-  export {db,auth,usersCollection,storage,songsCollection};
+  export {db,auth,usersCollection,storage,songsCollection,commentsCollection};
 
 
