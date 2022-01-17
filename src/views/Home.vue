@@ -6,7 +6,7 @@
         style="background-image: url(assets/img/header.png)"></div>
       <div class="container mx-auto">
         <div class="text-white main-header-content">
-          <h1 class="mb-5 text-5xl font-bold">Listen to Great Music!</h1>
+          <h1 class="mb-5 text-5xl font-bold">{{ $t('home.listen') }}</h1>
           <p class="w-full mx-auto md:w-8/12">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Phasellus et dolor mollis, congue augue non, venenatis elit.
@@ -26,7 +26,7 @@
       <div class="relative flex flex-col bg-white border border-gray-200 rounded">
         <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200" 
         v-icon-secondary ="{icon: 'headphones-alt', right:true}">
-          <span class="card-title">Songs</span>
+          <span class="card-title">{{ $t('home.songs') }}</span>
         </div>
         <!-- Playlist -->
         <ol id="playlist">

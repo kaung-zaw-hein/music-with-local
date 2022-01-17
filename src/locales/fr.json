@@ -1,0 +1,37 @@
+{
+  "About": "sur",
+  "Email": "E-mail",
+  "Password": " le mot de passe",
+  "comment": {
+    "latest": "dernier",
+    "newest": "le plus récent"
+  },
+  "goback": "retourner",
+  "home": {
+    "listen": " Écoutez de la bonne musique !",
+    "songs": "Chansons"
+  },
+  "login": "Connexion",
+  "logout": " Se déconnecter",
+  "manage": {
+    "DUFH": "Déposez vos fichiers ici",
+    "upload": "téléchargé"
+  },
+  "register": {
+    "TOS": "Conditions d'utilisation",
+    "accept": "J'accepte",
+    "age": " Âge",
+    "confirmPassword": " Confirmez le mot de passe",
+    "country": "pays",
+    "name": "Nom",
+    "title": " S'inscrire"
+  },
+  "song": {
+    "comment_count": " compteur de commentaires",
+    "genre": "genres",
+    "title": "Titre",
+    "uploadedby": "telechargé par"
+  },
+  "submit": "nous faire parvenir",
+  "youraccount": "Votre compte"
+}

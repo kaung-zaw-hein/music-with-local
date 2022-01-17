@@ -24,7 +24,10 @@
         <div class="relative flex flex-col bg-white border border-gray-200 rounded">
           <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
             <!-- Comment Count -->
-            <span class="card-title">Comments ({{song.comment_count}})</span>
+            <span class="card-title">{{ $tc('song.comment_count', song.comment_count, {
+                count: song.comment_count 
+              }) 
+              }}</span>
             <i class="float-right text-2xl text-green-400 fa fa-comments"></i>
           </div>
           <div class="p-6">
@@ -39,14 +42,14 @@
                 placeholder="Your comment here..."></vee-field>
                 <ErrorMessage class="block text-red-600" name="comment"></ErrorMessage>
               <button type="submit" class="py-1.5 px-3 rounded text-white bg-green-600"
-              :disabled="comment_in_submission">Submit</button>
+              :disabled="comment_in_submission">{{ $t('submit') }}</button>
             </vee-form>
             <!-- Comment Sorting -->
             <select v-model = "sort"
               class="block mt-4 py-1.5 px-3 text-gray-800 border border-gray-300 transition
               duration-500 focus:outline-none focus:border-black rounded">
-              <option value="1">Latest</option>
-              <option value="2">Oldest</option>
+              <option value="1">{{ $t('comment.latest') }}</option>
+              <option value="2">{{ $t('comment.newest') }}</option>
             </select>
           </div>
         </div>

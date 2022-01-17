@@ -1,7 +1,7 @@
 <template>
    <div class="relative flex flex-col bg-white border border-gray-200 rounded">
           <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
-            <span class="card-title">Upload</span>
+            <span class="card-title">{{ $t('manage.upload') }}</span>
             <i class="float-right text-2xl text-green-400 fas fa-upload"></i>
           </div>
           <div class="p-6">

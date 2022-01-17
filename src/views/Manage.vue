@@ -7,7 +7,7 @@
       <div class="col-span-2">
         <div class="relative flex flex-col bg-white border border-gray-200 rounded">
           <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
-            <span class="card-title">My Songs</span>
+            <span class="card-title">{{ $t('home.songs') }}</span>
             <i class="float-right text-2xl text-green-400 fa fa-compact-disc"></i>
           </div>
           <div class="p-6">

@@ -1,0 +1,37 @@
+{
+  "Email": "Email",
+  "Password": "Password",
+  "comment": {
+    "latest": "Latest",
+    "newest": "Newest"
+  },
+  "goback": "go back",
+  "home": {
+    "about": "About",
+    "listen": "Listen to Great Music!",
+    "songs": "Songs"
+  },
+  "login": "Login",
+  "logout": "logout",
+  "manage": {
+    "DUFH": "Drop your files here",
+    "upload": "Upload"
+  },
+  "register": {
+    "TOS": "Terms of Service",
+    "accept": "I accept Music's{0}",
+    "age": "Age",
+    "confirmPassword": "Confirm Password",
+    "country": "Country",
+    "name": "Name",
+    "title": "Register"
+  },
+  "song": {
+    "comment_count": "No comments| 1 Comment|{count} Comments",
+    "genre": "genre",
+    "title": "Title",
+    "uploadedby": "Uploaded By"
+  },
+  "submit": " nous faire parvenir",
+  "youraccount": "Your Account"
+}
