@@ -7,14 +7,19 @@ import {auth} from  './includes/firebase';
 import Icon from './directives/icon';
 import './assets/tailwind.css';
 import './assets/main.css';
-import i18n from './includes/i18n'
-import './registerServiceWorker'
+import i18n from './includes/i18n';
+import './registerServiceWorker';
+import GlobalComponents from './includes/_global';
+import ProgressBar from './includes/progress-bar';
+import 'nprogress/nprogress.css';
+
+ProgressBar(router);
 
 let app;
 
 auth.onAuthStateChanged(() => {
   if (!app) {
-    app = createApp(App).use(i18n).use(router).use(store).use(VeeValidatePlugin).directive('icon',Icon).mount('#app')
+    app = createApp(App).use(i18n).use(router).use(store).use(VeeValidatePlugin).use(GlobalComponents).directive('icon',Icon).mount('#app')
 
     // app.use(store);
     // app.use(router);

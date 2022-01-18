@@ -1,4 +1,4 @@
-<template>
+seek<template>
   <!-- Player -->
   <div class="fixed bottom-0 left-0 w-full h-16 p-5 pb-4 text-left align-top bg-white">
     <div class="relative">
@@ -48,7 +48,12 @@ export default {
     },
     computed: {
         ...mapGetters(['playing']),
-        ...mapState(['seek', 'duration','playerProgress','currentSong']),
+        ...mapState({
+      seek: (state) => state.player.seek,
+      duration: (state) => state.player.duration,
+      playerProgress: (state) => state.player.playerProgress,
+      currentSong: (state) => state.player.currentSong,
+    }),
     }
 }
 </script>

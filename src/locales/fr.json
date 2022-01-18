@@ -27,7 +27,7 @@
     "title": " S'inscrire"
   },
   "song": {
-    "comment_count": " compteur de commentaires",
+    "comment_count": " Aucun commentaire | 1 commentaire|{count} commentaires",
     "genre": "genres",
     "title": "Titre",
     "uploadedby": "telechargé par"
