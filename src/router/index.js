@@ -4,7 +4,9 @@ import store from '@/store';
 const Home = () => import('../views/Home.vue');
 const About = () => import('../views/About.vue');
 const Manage = () => import(/* webpackChunkName: "groupedChunk" */'../views/Manage.vue');
-const Song = () => import(/* webpackChunkName: "groupedChunk" */'../views//Song.vue');
+const Song = () => import(/* webpackChunkName: "groupedChunk" */'../views/Song.vue');
+const Uploader = () => import('../views/Uploader.vue');
+const Genre = () => import('../views/Genre.vue');
 
 const routes = [
   {
@@ -34,7 +36,19 @@ const routes = [
     path: '/song/:id',
     name: 'Song',
     component: Song,
-
+    props:true,
+  },
+  {
+    path: '/uploader/:pp',
+    name: 'Uploader',
+    component: Uploader,
+    props:true,
+  },
+  {
+    path: '/genres/:tags',
+    name: 'Genre',
+    component: Genre,
+    props:true,
   },
   {
     path: '/:catchAll(.*)*',
@@ -44,7 +58,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  linkExactActiveClass:"text-yellow-500"
+  linkExactActiveClass:"link-active"
 });
 
 router.beforeEach((to, from, next) => {

@@ -15,6 +15,7 @@
   "logout": " Se déconnecter",
   "manage": {
     "DUFH": "Déposez vos fichiers ici",
+    "name": " faire en sorte",
     "upload": "téléchargé"
   },
   "register": {
@@ -22,7 +23,7 @@
     "accept": "J'accepte",
     "age": " Âge",
     "confirmPassword": " Confirmez le mot de passe",
-    "country": "pays",
+    "country": " pays",
     "name": "Nom",
     "title": " S'inscrire"
   },

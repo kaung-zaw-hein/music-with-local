@@ -2,7 +2,7 @@
   <main>
      <!-- Music Header -->
     <section class="relative w-full mb-8 text-center text-white py-14">
-        <div class="box-border absolute inset-0 w-full h-full bg-contain music-bg"
+        <div class="box-border absolute inset-0 w-full h-full bg-cover music-bg"
           style="background-image: url(/assets/img/song-header.png)">
         </div>
         <div class="container flex items-center mx-auto">
@@ -15,20 +15,25 @@
           <div  class="z-50 ml-8 text-left">
             <!-- Song Info -->
             <div class="text-3xl font-bold">{{song.modified_name}}</div>
-            <div>{{song.genre}}</div>
+            <div v-if="song.genre">
+              <router-link :to="{ name: 'Genre', params: { tags: song.genre }}" class="-mt-4 text-sm font-bold text-white ">{{song.genre}}</router-link>
+            </div>
+            <div v-else class="text-white">
+              Loading
+            </div>
           </div>
         </div>
       </section>
       <!-- Form -->
       <section class="container mx-auto mt-6" id="comments">
-        <div class="relative flex flex-col bg-white border border-gray-200 rounded">
+        <div class="relative flex flex-col rounded">
           <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
             <!-- Comment Count -->
-            <span class="card-title">{{ $tc('song.comment_count', song.comment_count, {
+            <span class="text-white card-title">{{ $tc('song.comment_count', song.comment_count, {
                 count: song.comment_count 
               }) 
               }}</span>
-            <i class="float-right text-2xl text-green-400 fa fa-comments"></i>
+            <i class="float-right text-2xl text-green-400 fa fa-comment-alt"></i>
           </div>
           <div class="p-6">
             <div class="p-4 mb-4 font-bold text-center text-white" v-if="comment_show_alert" :class="comment_alert_variant">
@@ -37,17 +42,17 @@
             <vee-form :validation-schema="schema" @submit="addComment"
             v-if="userLoggedIn">
               <vee-field as="textarea" name="comment"
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition
-                  duration-500 focus:outline-none focus:border-black rounded mb-4"
+                class="block w-full py-1.5 px-3 text-gray-200  rounded-b-lg  transition
+                  duration-500 focus:outline-none focus:border-black rounded mb-4 bg-gray-700" 
                 placeholder="Your comment here..."></vee-field>
                 <ErrorMessage class="block text-red-600" name="comment"></ErrorMessage>
-              <button type="submit" class="py-1.5 px-3 rounded text-white bg-green-600"
+              <button type="submit" class="float-right py-1.5 px-3 rounded text-white bg-green-600"
               :disabled="comment_in_submission">{{ $t('submit') }}</button>
             </vee-form>
             <!-- Comment Sorting -->
             <select v-model = "sort"
-              class="block mt-4 py-1.5 px-3 text-gray-800 border border-gray-300 transition
-              duration-500 focus:outline-none focus:border-black rounded">
+              class="block mt-4 py-1.5 px-3 bg-green-600 text-white border border-gray-300 transition rounded
+              duration-500 focus:outline-none focus:border-black">
               <option value="1">{{ $t('comment.latest') }}</option>
               <option value="2">{{ $t('comment.newest') }}</option>
             </select>
@@ -56,15 +61,15 @@
       </section>
       <!-- Comments -->
       <ul class="container mx-auto">
-        <li class="p-6 border border-gray-200 bg-gray-50"
-        v-for="comment in sortedComments " :key="comment.docID">
+        <li class="p-6 border-b border-gray-500"
+        v-for="comment in formattedComments " :key="comment.docID">
           <!-- Comment Author -->
           <div class="mb-5">
-            <div class="font-bold">{{comment.name}}</div>
-            <time>{{comment.datePosted}}</time>
+            <div class="font-bold text-white">{{comment.name}}</div>
+            <time class="text-white">{{comment.datePosted}}</time>
           </div>
 
-          <p>
+          <p class="text-white">
             {{comment.content}}
           </p>
         </li>
@@ -75,6 +80,7 @@
 <script>
 import {songsCollection, auth, commentsCollection} from '@/includes/firebase';
 import {mapState, mapActions} from 'vuex';
+import {formatDistanceToNow} from "date-fns"
 export default {
   name: "Song",
   data() {
@@ -95,14 +101,26 @@ export default {
      ...mapState({
       userLoggedIn: (state) => state.auth.userLoggedIn,
     }),
-    sortedComments(){
-      return this.comments.slice().sort((a,b) => {
-        if(this.sort === '1'){
-          return new Date(b.datePosted) - new Date(a.datePosted);
-        }
-        return new Date(a.datePosted) - new Date(b.datePosted);
+    // sortedComments(){
+    //   return this.comments.slice().sort((a,b) => {
+    //     if(this.sort === '1'){
+    //       return new Date(b.datePosted) - new Date(a.datePosted);
+    //     }
+    //     return new Date(a.datePosted) - new Date(b.datePosted);
+    //   });
+    // },
+    formattedComments(){
+      let formatCom =  this.comments.map((com)=>{
+            let formatTime=  formatDistanceToNow(new Date(com.datePosted))
+            return  {...com,datePosted:formatTime}// 
+        })// [{}]
+        return formatCom.slice().sort((a,b) => {
+          if(this.sort === '1'){
+            return b.datePosted < a.datePosted;
+          }
+        return a.datePosted > b.datePosted;
       });
-    },
+      }
   },
   async beforeRouteEnter(to, from, next) {
     const docSnapshot = await songsCollection.doc(to.params.id).get();
@@ -152,7 +170,9 @@ export default {
       resetForm();
     },
     async getComments(){
-      const snapshots = await commentsCollection.where('sid', '==', this.$route.params.id,)
+      const snapshots = await commentsCollection
+      .where('sid', '==', this.$route.params.id,)
+      .orderBy("datePosted")
       .get();
 
       this.comments = [];

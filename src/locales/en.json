@@ -3,7 +3,7 @@
   "Password": "Password",
   "comment": {
     "latest": "Latest",
-    "newest": "Newest"
+    "newest": "Recent"
   },
   "goback": "go back",
   "home": {
@@ -15,6 +15,7 @@
   "logout": "logout",
   "manage": {
     "DUFH": "Drop your files here",
+    "name": "Manage",
     "upload": "Upload"
   },
   "register": {
@@ -22,7 +23,7 @@
     "accept": "I accept Music's{0}",
     "age": "Age",
     "confirmPassword": "Confirm Password",
-    "country": "Country",
+    "country": "",
     "name": "Name",
     "title": "Register"
   },
@@ -32,6 +33,6 @@
     "title": "Title",
     "uploadedby": "Uploaded By"
   },
-  "submit": " nous faire parvenir",
+  "submit": "Submit",
   "youraccount": "Your Account"
 }

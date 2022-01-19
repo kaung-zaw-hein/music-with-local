@@ -9,7 +9,7 @@
     <div class="mb-3">
       <label class="inline-block mb-2">{{ $t('Email') }}</label>
       <vee-field type="email" name="email"
-        class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition
+        class="block w-full py-1.5 px-3 text-gray-800 border-b border-gray-200 outline-none transition
           duration-500 focus:outline-none focus:border-black rounded"
          :placeholder="'Enter ' + $t('Email')" />
       <ErrorMessage class="text-red-600" name="email" />
@@ -18,14 +18,14 @@
     <div class="mb-3">
       <label class="inline-block mb-2">{{ $t('Password') }}</label>
       <vee-field type="password" name="password"
-        class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition
+        class="block w-full py-1.5 px-3 text-gray-800 border-b border-gray-300 transition
           duration-500 focus:outline-none focus:border-black rounded"
         :placeholder="'Enter ' + $t('Password')" />
       <ErrorMessage class="text-red-600" name="password" />
     </div>
     <button type="submit" :disabled="login_in_submission"
-      class="block w-full bg-purple-600 text-white py-1.5 px-3 rounded transition
-        hover:bg-purple-700">
+      class="block w-full bg-green-600 text-white py-1.5 px-3 rounded transition
+        hover:bg-green-700  ">
       {{ $t('submit') }}
     </button>
   </vee-form>

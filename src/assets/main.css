@@ -4,7 +4,7 @@ a {
 
 /* text-yellow-500 */
 a:hover {
-  color: #F59E0B;
+  color:  #FFBB00;
   text-decoration: none;
 }
 
@@ -188139,4 +188139,24 @@ video {
 #nprogress .spinner-icon {
   border-top-color: #FFBB00;
   border-left-color: #FFBB00;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #FFBB00; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFBB00; 
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #22c55e; 
+}
+.link-active {
+  color: #FFBB00;
 }

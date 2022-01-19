@@ -10,6 +10,7 @@
   "dependencies": {
     "@vee-validate/rules": "^4.5.7",
     "core-js": "^3.6.5",
+    "date-fns": "^2.28.0",
     "firebase": "^8.2.3",
     "howler": "^2.2.3",
     "lodash": "^4.17.21",

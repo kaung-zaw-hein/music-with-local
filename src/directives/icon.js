@@ -1,6 +1,6 @@
 export default{
     beforeMount(el, binding) {
-        let iconClass = ` text-2xl  fa fa-${binding.value}`;
+        let iconClass = `mr-12  text-2xl  fa fa-${binding.value}`;
 
         if(binding.arg === 'full'){
             iconClass = binding.value;

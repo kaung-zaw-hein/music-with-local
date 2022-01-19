@@ -1,12 +1,12 @@
 <template>
-   <div class="relative flex flex-col bg-white border border-gray-200 rounded">
-          <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
+   <div class="relative flex flex-col bg-white rounded">
+          <div class="px-6 pt-6 pb-5 font-bold ">
             <span class="card-title">{{ $t('manage.upload') }}</span>
             <i class="float-right text-2xl text-green-400 fas fa-upload"></i>
           </div>
           <div class="p-6">
             <div
-              class="w-full px-10 py-20 text-center text-gray-400 transition duration-500 border border-gray-400 border-dashed rounded cursor-pointer hover:text-white hover:bg-green-400 hover:border-green-400 hover:border-solid"
+              class="w-full px-10 py-20 text-center text-gray-400 transition duration-500 border border-gray-400 rounded cursor-pointer hover:text-white hover:bg-green-400 hover:border-green-400 hover:border-solid"
                :class="{'bg-green-400 hover:border-green-400 hover:border-solid' : isDragover}"
               @drag.prevent.stop="isDragover = true"
               @dragstart.prevent.stop="isDragover = true"
@@ -16,9 +16,14 @@
               @dragleave.prevent.stop="isDragover = false"
               @drop.prevent.stop="upload($event)"
               >
-              <h5>Drop your files here</h5>
+              <h5>{{ $t('manage.DUFH')}}</h5>
             </div>
-            <input type="file" multiple @change="upload($event)" />
+            <label
+              class="flex flex-col items-center px-4 py-6 tracking-wide text-green-600 uppercase transition-all duration-150 ease-linear bg-white border rounded-md shadow-md cursor-pointer border-blue hover:bg-green-600 hover:text-white">
+              <i class="fas fa-cloud-upload-alt fa-2x animate-bounce"></i>
+              <span class="mt-2 text-sm leading-normal">Select a file</span>
+              <input class="hidden " type="file" multiple @change="upload($event)" />
+            </label>
             <hr class="my-6" />
             <div class="mb-4" v-for =" upload in uploads " :key ="upload.name">
               <div class="text-sm font-bold" :class="upload.text_class" ><i :class="upload.icon"></i> {{upload.name}}</div>

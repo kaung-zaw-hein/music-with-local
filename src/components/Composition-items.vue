@@ -1,5 +1,5 @@
 <template>
-     <div class="p-3 mb-4 border border-gray-200 rounded">
+     <div class="p-3 mb-4 rounded">
                 <div>
                   <h4 class="inline-block text-2xl font-bold">{{ song.modified_name }}</h4>
                   <button class="float-right px-2 py-1 ml-1 text-sm text-white bg-red-600 rounded"
@@ -7,7 +7,7 @@
                     <i class="fa fa-times"></i>
                   </button>
                   <button 
-                  class="float-right px-2 py-1 ml-1 text-sm text-white bg-blue-600 rounded"
+                  class="float-right px-2 py-1 ml-1 text-sm text-white bg-green-600 rounded"
                   @click.prevent="showForm = !showForm" >
                     <i class="fa fa-pencil-alt"></i>
                   </button>
@@ -109,14 +109,19 @@ export default {
      this.alert_message = 'Success!';
    },
    async deleteSong(){
-     const storageRef = storage.ref();
-     const songRef = storageRef.child(`songs/${this.song.original_name}`);
+     const tryConfrim  =  confirm("Do you want to delete this song?");
+     if(tryConfrim){
+       const storageRef = storage.ref();
+      const songRef = storageRef.child(`songs/${this.song.original_name}`);
 
-     await songRef.delete();
+      await songRef.delete();
 
-     await songsCollection.doc(this.song.docID).delete();
+      await songsCollection.doc(this.song.docID).delete();
 
-     this.removeSong(this.index);
+      this.removeSong(this.index);
+     }else{
+        return;
+     }
    },
  },
 };

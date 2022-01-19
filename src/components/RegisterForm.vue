@@ -9,7 +9,7 @@
     <div class="mb-3">
       <label class="inline-block mb-2"> {{ $t('register.name') }}</label>
       <vee-field type="text" name="name"
-        class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition
+        class="block w-full py-1.5 px-3 text-gray-800 border-b border-gray-300 transition
           duration-500 focus:outline-none focus:border-black rounded"
          :placeholder="'Enter ' + $t('register.name')" />
       <ErrorMessage class="text-red-600" name="name" />
@@ -18,7 +18,7 @@
     <div class="mb-3">
       <label class="inline-block mb-2">{{ $t('Email') }}</label>
       <vee-field type="email" name="email"
-        class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition
+        class="block w-full py-1.5 px-3 text-gray-800 border-b border-gray-300 transition
           duration-500 focus:outline-none focus:border-black rounded"
          :placeholder="'Enter ' + $t('Email')" />
       <ErrorMessage class="text-red-600" name="email" />
@@ -27,7 +27,7 @@
     <div class="mb-3">
       <label class="inline-block mb-2">{{ $t('register.age') }}</label>
       <vee-field type="number" name="age"
-        class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition
+        class="block w-full py-1.5 px-3 text-gray-800 border-b border-gray-300 transition
           duration-500 focus:outline-none focus:border-black rounded" />
       <ErrorMessage class="text-red-600" name="age" />
     </div>
@@ -35,7 +35,7 @@
     <div class="mb-3">
       <label class="inline-block mb-2">{{ $t('Password') }}</label>
       <vee-field name="password" :bails="false" v-slot="{ field, errors }">
-        <input class="block w-full py-1.5 px-3 text-gray-800 border
+        <input class="block w-full py-1.5 px-3 text-gray-800 border-b
           border-gray-300 transition duration-500 focus:outline-none
           focus:border-black rounded" type="password"
            :placeholder="'Enter ' + $t('Password')" v-bind="field" />
@@ -48,7 +48,7 @@
     <div class="mb-3">
       <label class="inline-block mb-2">{{ $t('register.confirmPassword') }}</label>
       <vee-field type="password" name="confirm_password"
-        class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition
+        class="block w-full py-1.5 px-3 text-gray-800 border-b border-gray-300 transition
           duration-500 focus:outline-none focus:border-black rounded"
          :placeholder="'Enter ' + $t('register.confirmPassword')" />
       <ErrorMessage class="text-red-600" name="confirm_password" />
@@ -57,7 +57,7 @@
     <div class="mb-3">
       <label class="inline-block mb-2">{{ $t('register.country') }}</label>
       <vee-field as="select" name="country"
-        class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition
+        class="block w-full py-1.5 px-3 text-gray-800 border-b border-gray-300 transition
           duration-500 focus:outline-none focus:border-black rounded">
         <option value="USA">USA</option>
         <option value="Mexico">Mexico</option>

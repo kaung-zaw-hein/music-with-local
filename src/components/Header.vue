@@ -1,13 +1,13 @@
 <template>
   <!-- Header -->
-  <header id="header" class="bg-gray-700">
+  <header id="header" class="bg-gray-900">
     <nav class="container flex items-center justify-start px-4 py-5 mx-auto">
       <!-- App Name -->
-      <router-link class="mr-4 text-2xl font-bold text-white uppercase" to="/" exact-active-class="no-active">
-        Music
+      <router-link class="mr-4 text-2xl font-bold text-white uppercase" to="/" exact-active-class="no-active" >
+        BRNYR
       </router-link>
 
-      <div class="flex items-center flex-grow">
+      <div class="flex items-center flex-grow ml-10">
         <!-- Primary Navigation -->
         <ul class="flex flex-row mt-1">
           <!-- Navigation Links -->
@@ -24,7 +24,7 @@
           <template v-else>
             <li>
               <router-link class="px-2 text-white" :to="{ name : 'Manage'}">
-                {{ $t('manage') }}
+                {{ $t('manage.name') }}
               </router-link>
             </li>
             <li>
@@ -35,9 +35,16 @@
         </ul>
         <ul class="flex flex-row mt-1 ml-auto">
           <li>
-            <a href="#" class="px-2 text-white" @click.prevent="changeLocale">
-              {{ currentLocale }}
-            </a>
+            <select  name="language"
+              class="block w-full py-1.5 px-3 text-gray-800 border-b border-gray-300 transition
+                duration-500 focus:outline-none focus:border-black rounded"
+                 v-model="language"
+                  @change="changeLocale()">
+              <option value="en">English</option>
+              <option value="fr">French</option>
+              <option value="my">Burmese</option>
+              <!-- <option value="Antarctica">Antarctica</option> -->
+            </select>
           </li>
         </ul>
       </div>
@@ -50,6 +57,11 @@ import { mapMutations, mapState } from 'vuex';
 
 export default {
   name: 'Header',
+  data() {
+    return  {
+      language: "en",
+    }
+  },
   computed: {
      ...mapState({
       userLoggedIn: (state) => state.auth.userLoggedIn,
@@ -73,7 +85,13 @@ export default {
     //   this.$store.commit('toggleAuthModal');
     // },
      changeLocale() {
-      this.$i18n.locale = this.$i18n.locale === 'fr' ? 'en' : 'fr';
+       if(this.language === 'en'){
+          this.$i18n.locale = 'en'
+        }else if(this.language === 'fr'){
+          this.$i18n.locale = 'fr'
+        }else{
+          this.$i18n.locale = 'my'
+        }
     },
   },
 };
