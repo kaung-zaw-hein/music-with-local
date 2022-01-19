@@ -59,9 +59,9 @@
       <vee-field as="select" name="country"
         class="block w-full py-1.5 px-3 text-gray-800 border-b border-gray-300 transition
           duration-500 focus:outline-none focus:border-black rounded">
-        <option value="USA">USA</option>
-        <option value="Mexico">Mexico</option>
-        <option value="Germany">Germany</option>
+        <option value="USA">English</option>
+        <option value="Fench">Fench</option>
+        <option value="Myanmar">Myanmar</option>
         <option value="Antarctica">Antarctica</option>
       </vee-field>
       <ErrorMessage class="text-red-600" name="country" />
